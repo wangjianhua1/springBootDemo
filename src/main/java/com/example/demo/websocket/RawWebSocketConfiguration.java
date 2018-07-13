@@ -20,7 +20,7 @@ public class RawWebSocketConfiguration implements WebSocketConfigurer {
 
         @Override
         protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-            System.out.println("Received: " + message.getPayload());
+            System.out.println("接收到的信息: " + message.getPayload());
             session.sendMessage(new TextMessage("Received " + message.getPayload()));
         }
     }
