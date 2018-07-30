@@ -22,7 +22,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-/.idea
-/.idea/*
-/springBootDemo/target/*
-/*.iml
+*.iml
+.idea
+.idea/workspace.xml
+target
+/**/WEB-INF/lib/
+/**/WEB-INF/classes/
+

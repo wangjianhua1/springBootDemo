@@ -1,10 +1,8 @@
 package com.example.demo.utils;
 
 import com.alibaba.fastjson.JSON;
-import com.example.demo.bean.Book;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
-import com.thoughtworks.xstream.io.xml.CompactWriter;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 
 import java.beans.XMLDecoder;
