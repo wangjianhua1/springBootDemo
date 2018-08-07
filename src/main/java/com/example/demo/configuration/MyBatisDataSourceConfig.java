@@ -11,13 +11,16 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 /**
  * @author CrayHu(hukelei@jd.com)
  * @version Revision: 1.00 Date: 2018/3/15.
  */
+@Service
 @Configuration
 @EnableConfigurationProperties(MybatisProperties.class)
 @MapperScan(basePackages = {"com.example.demo.dao"}, sqlSessionFactoryRef = "sqlSessionFactory")

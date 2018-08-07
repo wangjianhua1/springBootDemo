@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dao.OrderDao;
+import com.example.demo.utils.MyBeanFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
  * Created by wangjianhua3 on 2018/2/26.
  */
 @Controller
+@RequestMapping("/")
 public class DemoController extends BaseController {
 
     @Value("${myname}")
@@ -24,7 +26,7 @@ public class DemoController extends BaseController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String index() {
         log.info("=springboot=" + myname);
-        int count = orderDao.getCount();
+        int count = this.orderDao.getCount();
         log.info("=orderDao=" + count);
         request.setAttribute("userName", myname);
         HttpSession session = request.getSession();

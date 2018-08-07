@@ -6,6 +6,11 @@ public class WaitNotifyTest {
     private String[] shareObj = {"true"};
 
     public static void main(String[] args) {
+        int m=0,n=0;
+        m=m++;
+        System.out.println(m);
+        n=++n;
+        System.out.println(n);
         WaitNotifyTest test = new WaitNotifyTest();
         ThreadWait threadWait1 = test.new ThreadWait("wait thread1");
         threadWait1.setPriority(2);
