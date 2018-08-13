@@ -17,6 +17,7 @@ public class AtomicLimit {
             } else {
                 System.out.println(threadName + "您的请求已经处理");
                 try {
+                    boolean b = Thread.holdsLock(this);
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

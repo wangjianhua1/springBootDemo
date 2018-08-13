@@ -8,7 +8,6 @@ import java.util.concurrent.Semaphore;
  * 利用信号量方式限流
  */
 public class ExcutorSignal {
-
     public static void main(String[] args) {
         ExecutorService exec = Executors.newFixedThreadPool(20);
         //只能5个线程同时访问
@@ -31,9 +30,5 @@ public class ExcutorSignal {
             };
             exec.execute(run);
         }
-
-
-        System.out.println();
     }
-
 }
