@@ -71,6 +71,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!--自动重启：当Classpath里的文件发生变化时，自动重启运行中的应用程序。
+        . LiveReload支持：对资源的修改自动触发浏览器刷新。
+        . 远程开发：远程部署时支持自动重启和LiveReload。
+        . 默认的开发时属性值：为一些属性提供有意义的默认开发时属性值。-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
