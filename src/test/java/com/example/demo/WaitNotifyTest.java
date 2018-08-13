@@ -6,10 +6,10 @@ public class WaitNotifyTest {
     private String[] shareObj = {"true"};
 
     public static void main(String[] args) {
-        int m=0,n=0;
-        m=m++;
+        int m = 0, n = 0;
+        m = m++;
         System.out.println(m);
-        n=++n;
+        n = ++n;
         System.out.println(n);
         WaitNotifyTest test = new WaitNotifyTest();
         ThreadWait threadWait1 = test.new ThreadWait("wait thread1");
@@ -34,7 +34,9 @@ public class WaitNotifyTest {
         }
 
         public void run() {
+            boolean b = Thread.holdsLock(shareObj);
             synchronized (shareObj) {//取得对象的控制权。若此行注释，则java.lang.IllegalMonitorStateException
+                b = Thread.holdsLock(shareObj);
                 while ("true".equals(shareObj[0])) {
                     System.out.println("线程" + this.getName() + "开始等待");
                     long startTime = System.currentTimeMillis();
