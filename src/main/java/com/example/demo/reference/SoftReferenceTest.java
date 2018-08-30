@@ -1,6 +1,10 @@
 package com.example.demo.reference;
 
+import com.alibaba.fastjson.JSON;
+
 import java.lang.ref.SoftReference;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -31,20 +35,43 @@ public class SoftReferenceTest {
         }
     }
 
+//    public static void main(String[] args) {
+//        try {
+//            int count = 100;//mark //此count引用，存于栈中,内容存在栈中
+//            SoftReference[] values = new SoftReference[count];//mark //此count引用，存于栈中,内容存在堆中
+//            for (int i = 0; i < count; i++) {
+//                values[i] = new SoftReference<BiggerObject>(new BiggerObject("Object-" + i));
+//            }
+//            System.out.println(((BiggerObject) Objects.requireNonNull(values[values.length - 1].get())).name);
+//            for (int i = 0; i < 10; i++) {
+//                System.out.println(values[i].get());
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
+
     public static void main(String[] args) {
         try {
-            int count = 100;//mark //此count引用，存于栈中,内容存在栈中
-            SoftReference[] values = new SoftReference[count];//mark //此count引用，存于栈中,内容存在堆中
-            for (int i = 0; i < count; i++) {
-                values[i] = new SoftReference<BiggerObject>(new BiggerObject("Object-" + i));
+
+            Map<String, SoftReference<BiggerObject>> map = new HashMap<String, SoftReference<BiggerObject>>();
+            for (int i = 0; i < 1000000; i++) {
+                SoftReference<BiggerObject> softReference = new SoftReference<BiggerObject>(new BiggerObject("Object-" + i));
+                map.put(""+i, softReference);
             }
-            System.out.println(((BiggerObject) Objects.requireNonNull(values[values.length - 1].get())).name);
-            for (int i = 0; i < 10; i++) {
-                System.out.println(values[i].get());
-            }
+
+            System.out.println(map.size());
+            System.out.println(JSON.toJSONString(map.get("1")));
+            System.out.println(JSON.toJSONString(map.get("10")));
+            System.out.println(JSON.toJSONString(map.get("100")));
+            System.out.println(JSON.toJSONString(map.get("1000")));
+            System.out.println(JSON.toJSONString(map.get("29")));
+            System.out.println(JSON.toJSONString(map));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+
         }
     }
 
@@ -77,9 +104,9 @@ public class SoftReferenceTest {
  * <p>
  * 1) 装载：查找并加载类的二进制数据；
  * 2)链接：
- *      验证：确保被加载类的正确性；
- *      准备：为类的静态变量分配内存，并将其初始化为默认值；
- *      解析：把类中的符号引用转换为直接引用；
+ * 验证：确保被加载类的正确性；
+ * 准备：为类的静态变量分配内存，并将其初始化为默认值；
+ * 解析：把类中的符号引用转换为直接引用；
  * 3)初始化：为类的静态变量赋予正确的初始值；
  */
 
