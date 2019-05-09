@@ -88,6 +88,7 @@ public class TrafficShapper {
             t.start();
         }
         latch.countDown();
+        System.out.println("线程开始......");
     }
 
 }

@@ -23,7 +23,7 @@
 hs_err_pid*
 
 *.iml
-.idea
+.idea/*
 .idea/workspace.xml
 target
 /**/WEB-INF/lib/
