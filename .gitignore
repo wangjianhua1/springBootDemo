@@ -1,6 +1,7 @@
 *.iml
-.idea
+.idea/*
 target
 /**/WEB-INF/lib/
 /**/WEB-INF/classes/
 *.log
+.idea
